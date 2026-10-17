@@ -1,0 +1,52 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  input {
+    width: 90px;
+    padding: 0.4rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+  }
+}
+
+button {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.6rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+
+  th {
+    background: #f3f4f6;
+  }
+}
+
+.alert {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #991b1b;
+}
