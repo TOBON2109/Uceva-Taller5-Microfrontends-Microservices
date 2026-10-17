@@ -26,14 +26,15 @@ export const routes: Routes = [
    * de mostrar y gestionar el listado de usuarios.
    */
   {
-        path: 'users',
-        loadComponent: () =>
-            loadRemoteModule({
-                type: 'module',
-                remoteEntry: 'http://localhost:4201/remoteEntry.js',
-                exposedModule: './UsersPage',
-        }).then(m => m.UsersPage),
-    },    
+    path: 'users',
+    loadComponent: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        exposedModule: './UsersPage',
+      }).then(m => m.UsersPage),
+  },
+
   /**
    * Ruta de productos.
    *
@@ -41,15 +42,66 @@ export const routes: Routes = [
    * Renderiza el componente `ProductsPage`, encargado
    * de mostrar y gestionar el listado de productos.
    */
-    {
-        path: 'products',
-        loadComponent: () =>
-            loadRemoteModule({
-                type: 'module',
-                remoteEntry: 'http://localhost:4202/remoteEntry.js',
-                exposedModule: './ProductsPage',
-        }).then(m => m.ProductsPage),
-    },
+  {
+    path: 'products',
+    loadComponent: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4202/remoteEntry.js',
+        exposedModule: './ProductsPage',
+      }).then(m => m.ProductsPage),
+  },
+
+  /**
+   * Ruta de categorías.
+   *
+   * @remarks
+   * Carga las rutas expuestas por el microfrontend de categorías,
+   * que consume `Microservice-Categories-NodeJS`.
+   */
+  {
+    path: 'categories',
+    loadChildren: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4203/remoteEntry.js',
+        exposedModule: './Routes',
+      }).then(m => m.routes),
+  },
+
+  /**
+   * Ruta de proveedores.
+   *
+   * @remarks
+   * Carga las rutas expuestas por el microfrontend de proveedores,
+   * que consume `Microservice-Suppliers-NodeJS`.
+   */
+  {
+    path: 'suppliers',
+    loadChildren: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4204/remoteEntry.js',
+        exposedModule: './Routes',
+      }).then(m => m.routes),
+  },
+
+  /**
+   * Ruta de pedidos.
+   *
+   * @remarks
+   * Carga las rutas expuestas por el microfrontend de pedidos,
+   * que consume `Microservice-Orders-NodeJS`.
+   */
+  {
+    path: 'orders',
+    loadChildren: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4205/remoteEntry.js',
+        exposedModule: './Routes',
+      }).then(m => m.routes),
+  },
 
   /**
    * Ruta comodín.
